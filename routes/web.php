@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/request', function(Request $request){
+    // $r = $request->all();
+    // $r = $request->query('keyword');
+    // $r = $request->input('keyword');
+    // $r = $request->path();
+    // $r = $request->url();
+    // $r = $request->fullUrl();
+    // $r = $request->header();
+    // $r = $request->whenHas('keyword', function($input){
+    //     dd('x', $input);
+    // });
+
+    // $r = $request->whenFilled('keyword', function($input){
+    //     dd('x', $input);
+    // });
+
+    // if($r){
+    //     dd('Faça alguma coisa!');
+    // }
+
+    $r = $request->ip();
+
+    dd($r);
+    return 'x';
+});
 
 Route::get('user/{user}', function(User $user){
     return $user;
