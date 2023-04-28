@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,7 @@ Route::get('/request', function(Request $request){
     return 'x';
 });
 
-Route::get('user/{user}', function(User $user){
-    return $user;
-});
+Route::get('user/{user}', [UserController::class, 'show']);
 
 // Route::get('user/{user:email}', function(User $user){
 //     return $user;
