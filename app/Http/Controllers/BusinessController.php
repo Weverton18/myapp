@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class BusinessController extends Controller
 {
-    public function index(){
-        Business::all();
+    public function index()
+    {
+        \DB::connection()->enableQueryLog();
+        $business = Business::Where('name', 'LIKE', '%weverton%')->get();
+        $query = \DB::getQueryLog();
+        dd($query);
+        // $business->delete();
     }
 }
